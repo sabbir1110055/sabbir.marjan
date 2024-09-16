@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Details</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f0f8ff;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin-top: 50px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            background-color: #ffffff;
+            padding: 20px;
+        }
+        h1 {
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .card {
+            border: none;
+            margin-bottom: 20px;
+            background-color: #e7f3ff;
+            transition: transform 0.2s;
+            border-radius: 10px;
+        }
+        .card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .card-body {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+        }
+        .copy-button {
+            margin-left: auto;
+            background-color: #007bff;
+            border: none;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .copy-button:hover {
+            background-color: #0056b3;
+        }
+        .copied-message {
+            display: none;
+            color: #28a745;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.85em;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sabbir Marjan</h1>
+        <div class="card">
+            <div class="card-body">
+                <p id="description" class="mb-0">Welcome To My Website🙂
+                ✆Message me on Facebook for any needs
+                
+                ◑This website is created by Sabbir Marjan◑</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <p id="address" class="mb-0">Your Address</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <p id="facebook" class="mb-0" style="display: none;">https://www.facebook.com/profile.php?id=61557457001021&mibextid=ZbWKwL</p>
+                <p>Facebook id: Itz Sabbir</p>
+                <button class="copy-button" onclick="copyToClipboard('facebook')">Copy link</button>
+                <span class="copied-message" id="facebook-copied">Id link Copied!</span>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <p id="freefireUid" class="mb-0">Free Fire : itz✘ADNAN</p>
+                <button class="copy-button" onclick="copyToClipboard('freefireUid')">Copy Uid</button>
+                <span class="copied-message" id="freefire-copied">Uid Copied!</span>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <p id="emailUid" class="mb-0">Email: Sabbirboss1005@gmail.com</p>
+                <button class="copy-button" onclick="copyToClipboard('emailUid')">Copy Email</button>
+                <span class="copied-message" id="email-copied">E-mail Copied!</span>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Sabbir. All rights reserved. 🔰This website is created by Sabbir Marjan🔰</p>
+    </footer>
+    <script>
+        function copyToClipboard(id) {
+            let text;
+            if (id === 'facebook') {
+                text = document.getElementById(id).innerText;
+            } else if (id === 'freefireUid') {
+                text = document.getElementById(id).innerText;
+            } else if (id === 'emailUid') {
+                text = document.getElementById(id).innerText;
+            }
+            navigator.clipboard.writeText(text).then(() => {
+                const copiedMessage = document.getElementById(id + '-copied');
+                copiedMessage.innerText = "Copied!";
+                copiedMessage.style.display = 'inline';
+                setTimeout(() => {
+                    copiedMessage.style.display = 'none';
+                }, 2000);
+            });
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+[build]
+  publish = "public" #index.html
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
